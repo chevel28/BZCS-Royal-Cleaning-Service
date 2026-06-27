@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BZCS Royal Cleaning Services | Where Cleanliness Meets Royalty</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* GLOBAL STYLES */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #060a12; 
+    color: #ffffff;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* NAVIGATION BAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: #02050a;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #d4af37; 
+}
+
+/* LOGO SECTION */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 110px;  
+    height: 110px; 
+    border-radius: 50%;
+    border: 3px solid #d4af37;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo span.brand-title {
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.logo span.brand-tagline {
+    color: #4169e1; 
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* NAV LINKS */
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: #d4af37;
+}
+
+/* HERO SECTION */
+.hero {
+    height: 85vh;
+    /* Updated background with a gorgeous luxury interior image and an optimized contrast overlay */
+    background: linear-gradient(rgba(2, 5, 10, 0.65), rgba(6, 10, 18, 0.8)), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=80') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-text {
+    width: 100%;
+    max-width: 800px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #e0e6ed;
+    margin-bottom: 30px;
+    font-weight: 300;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* BUTTONS */
+.btn {
+    background: linear-gradient(135deg, #d4af37, #aa820a);
+    color: #02050a;
+    padding: 14px 35px;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+/* SECTIONS WRAPPERS */
+section {
+    padding: 90px 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+section:nth-of-type(even) {
+    background: #0b111e;
+}
+
+h2.section-title {
+    color: #d4af37;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+}
+
+.section-subtitle {
+    font-weight: 300;
+    color: #4169e1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 45px;
+    padding: 0 10px;
+}
+
+/* ABOUT US SECTION */
+.about-container {
+    max-width: 850px;
+    margin: 0 auto;
+    line-height: 1.9;
+    font-size: 1.1rem;
+    color: #cdbfe3;
+    padding: 0 10px;
+}
+
+.about-container p {
+    margin-bottom: 20px;
+    color: #e2e8f0;
+}
+
+/* SERVICE GRID STYLING */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: #0b111e;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-top: 4px solid #4169e1;
+    padding: 35px 25px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+section:nth-of-type(even) .service-card {
+    background: #060a12;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: #d4af37;
+}
+
+.service-card h3 {
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: #cbd5e1;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* PRICING MENU TABLE STYLING */
+.pricing-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+}
+
+.pricing-category {
+    background: #060a12;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+}
+
+section:nth-of-type(even) .pricing-category {
+    background: #0b111e;
+}
+
+.pricing-category h3 {
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-top: 0;
+    border-bottom: 2px solid #4169e1;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.95rem;
+}
+
+.price-item:last-child {
+    border-bottom: none;
+}
+
+.price-name {
+    color: #e2e8f0;
+    font-weight: 400;
+}
+
+.price-value {
+    color: #d4af37;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* REQUEST QUOTE FORM */
+.quote-container {
+    max-width: 650px;
+    margin: 0 auto;
+    background: #0b111e;
+    padding: 45px 30px;
+    border-radius: 12px;
+    border: 1px solid #d4af37;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+}
+
+.form-group {
+    margin-bottom: 22px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    color: #d4af37;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    background: #060a12;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: #4169e1;
+    outline: none;
+}
+
+/* CONTACT INFO LINKS */
+.contact-link {
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    margin: 5px 0;
+}
+
+.contact-link:hover {
+    color: #d4af37;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 45px 20px;
+    color: #d4af37;
+    background: #02050a;
+    border-top: 2px solid #d4af37;
+}
+
+footer p {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+
+/* ==========================================================================
+    DYNAMIC MEDIA QUERIES FOR BOTH MOBILE AND TABLET SCREENS
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    nav {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 0;
+    }
+    
+    nav ul li {
+        margin: 0 10px;
+    }
+    
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    h2.section-title {
+        font-size: 2.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 15px 10px;
+    }
+    
+    .logo img {
+        width: 80px;
+        height: 80px;
+        margin-right: 10px;
+    }
+    
+    .logo span.brand-title {
+        font-size: 1.3rem;
+    }
+    
+    nav ul li {
+        margin: 0 6px;
+    }
+    
+    nav a {
+        font-size: 0.85rem;
+    }
+    
+    .hero {
+        height: 75vh;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .pricing-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .pricing-category {
+        padding: 20px 15px;
+    }
+    
+    .quote-container {
+        padding: 30px 15px;
+    }
+    
+    .contact-link {
+        font-size: 1rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">
+        <img src="logo.jpeg" alt="BZCS Royal Cleaning Services Logo">
+        <div class="logo-text">
+            <span class="brand-title">BZCS Royal</span>
+            <span class="brand-tagline">Cleaning Services</span>
+        </div>
+    </div>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Price List</a></li>
+        <li><a href="#quote">Request Quote</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-text">
+        <h2>Where Cleanliness<br>Meets Royalty</h2>
+        <p>Providing pristine, professional, and reliable elite cleaning solutions across Jamaica.</p>
+        <a href="#quote" class="btn">Book Royal Cleaning</a>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="section-title">About Us</h2>
+    <div class="section-subtitle">Professional • Reliable • Trusted</div>
+    <div class="about-container">
+        <p>Welcome to <strong>BZCS Royal Cleaning Services</strong>, where we treat your home, office, or rental property like a palace. Proudly serving Montego Bay and surrounding local parishes, we deliver premium cleaning expertise constructed to elevate your standard of comfort and health.</p>
+        <p>We understand that a clean environment cultivates a clear mind and a healthier lifestyle. Backed by a team of trained, reliable cleaning professionals, we deploy high-grade equipment and specialized techniques to tackle any depth of dirt. From executive commercial centers to cozy residential spaces, we handle your space with elite care and absolute discretion.</p>
+    </div>
+</section>
+
+<section id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="section-subtitle">Comprehensive Property Care Solutions</div>
+    <div class="services-grid">
+        <div class="service-card">
+            <h3>Residential Care</h3>
+            <p>General upkeep and meticulous sanitization of all primary rooms, kitchens, bathrooms, dusting, sweeping, and deep mopping configurations.</p>
+        </div>
+        <div class="service-card">
+            <h3>Deep Cleaning</h3>
+            <p>Detailed top-to-bottom scrub down. Heavy kitchen/appliance scouring, detailed window panels, baseboards, and comprehensive sanitization layouts.</p>
+        </div>
+        <div class="service-card">
+            <h3>Airbnb Turnover</h3>
+            <p>High-speed, comprehensive, premium quick turns. Tailored exactly to maintain high-leverage guest reviews and strict hotel-ready aesthetics.</p>
+        </div>
+        <div class="service-card">
+            <h3>Move-In / Out</h3>
+            <p>Perfect for real estate listings, transitional lease agreements, or newly built properties requiring immediate pristine move-in readiness.</p>
+        </div>
+        <div class="service-card">
+            <h3>Office & Commercial</h3>
+            <p>Custom maintenance programs designed to keep corporate workspaces fresh, energetic, highly productive, and completely sanitary.</p>
+        </div>
+        <div class="service-card">
+            <h3>Elite Add-On Options</h3>
+            <p>Tailor your cleaning with specialized modules including inside oven/fridge work, deep laundry sessions, pressure washing, or full decluttering.</p>
+        </div>
+    </div>
+</section>
+
+<section id="pricing">
+    <h2 class="section-title">Official Price List</h2>
+    <div class="section-subtitle">Transparent, Elite Investment Structures (JMD)</div>
+
+    <div class="pricing-container">
+        <div class="pricing-category">
+            <h3>Residential Cleaning</h3>
+            <div class="price-item">
+                <span class="price-name">1 Bedroom House</span>
+                <span class="price-value">$5,000 - $8,000</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">2 Bedroom House</span>
+                <span class="price-value">$7,000 - $12,000</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">3 Bedroom House</span>
+                <span class="price-value">$10,000 - $15,000</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">4+ Bedroom House</span>
+                <span class="price-value">Starting at $15,000</span>
+            </div>
+        </div>
+
+        <div class="pricing-category">
+            <h3>Deep Cleaning</h3>
+            <div class="price-item">
+                <span class="price-name">1 Bedroom Space</span>
+                <span class="price-value">Starting at $10,000</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">2 Bedroom Space</span>
+                <span class="price-value">Starting at $15,000</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">3 Bedroom Space</span>
+                <span class="price-value">Starting at $20,000</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">4+ Bedroom Space</span>
+                <span class="price-value">Quote Required</span>
+            </div>
+        </div>
+
+        <div class="pricing-category">
+            <h3>Airbnb Turnover</h3>
+            <div class="price-item">
+                <span class="price-name">Studio Layout</span>
+                <span class="price-value">$4,500</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">1 Bedroom Unit</span>
+                <span class="price-value">$6,000</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">2 Bedroom Unit</span>
+                <span class="price-value">$8,500</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">3 Bedroom Unit</span>
+                <span class="price-value">$12,000</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">4+ Bedroom Unit</span>
+                <span class="price-value">Quote Required</span>
+            </div>
+        </div>
+
+        <div class="pricing-category">
+            <h3>Move-In/Out & Commercial</h3>
+            <div class="price-item">
+                <span class="price-name">Move-In / Move-Out Standard</span>
+                <span class="price-value">Starting at $15,000</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">Small Office Space</span>
+                <span class="price-value">Starting at $8,000</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">Medium Office Space</span>
+                <span class="price-value">Starting at $15,000</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">Large Corporate Office</span>
+                <span class="price-value">Quote Required</span>
+            </div>
+        </div>
+
+        <div class="pricing-category" style="grid-column: 1 / -1;">
+            <h3>Add-On Specialized Modules</h3>
+            <div class="price-item">
+                <span class="price-name">Inside Refrigerator Deep Sanitization</span>
+                <span class="price-value">$2,500</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">Inside Oven Scour & Clean</span>
+                <span class="price-value">$3,000</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">Interior Window Panes & Tracks</span>
+                <span class="price-value">$2,500</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">Elite Laundry Assistance Service</span>
+                <span class="price-value">Starting at $3,000</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">Comprehensive Organizing & Decluttering</span>
+                <span class="price-value">Quote Required</span>
+            </div>
+            <div class="price-item">
+                <span class="price-name">Exterior Structural Pressure Washing</span>
+                <span class="price-value">Quote Required</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="quote">
+    <h2 class="section-title">Request a Royal Quote</h2>
+    <div class="section-subtitle">Tell Us Your Layout Size for an Instant Estimate</div>
+    <div class="quote-container">
+        <form id="royalQuoteForm">
+            <div class="form-group">
+                <label for="client_name">Full Name</label>
+                <input type="text" id="client_name" required placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="cleaning_type">Service Requested</label>
+                <select id="cleaning_type" required>
+                    <option value="" disabled selected>Select cleaning protocol...</option>
+                    <option value="Residential Maintenance">Residential Cleaning</option>
+                    <option value="Deep Restoration Clean">Deep Cleaning</option>
+                    <option value="Airbnb Swift Turnover">Airbnb Turnover Cleaning</option>
+                    <option value="Move-In / Move-Out Protocols">Move-In / Move-Out Cleaning</option>
+                    <option value="Commercial Office Cleaning">Office / Business Space</option>
+                    <option value="Specialized Add-On Task Bundle">Custom Add-Ons Bundle</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="property_size">Property Layout (e.g., 2 Bed, 2 Bath / Studio / Office size)</label>
+                <input type="text" id="property_size" required placeholder="e.g. 3 Bedrooms, 2 Bathrooms">
+            </div>
+            <div class="form-group">
+                <label for="extra_notes">Special Requirements or Add-On Details</label>
+                <textarea id="extra_notes" rows="4" placeholder="Mention if you require inside fridge/oven cleaning, laundry services, specific time parameters, or deep structural stains attention..."></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%; border-radius: 6px; margin-top: 10px;">Send Booking Message via WhatsApp</button>
+        </form>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="section-title">Connect with Royalty</h2>
+    <div class="section-subtitle">Let us take care of the cleaning, so you can enjoy more of life!</div>
+    <p style="margin-bottom: 25px;">📍 Proudly serving Montego Bay and surrounding areas.</p>
+    
+    <div style="margin: 20px 0;">
+        <p>📞 Straight Call: <br><a href="tel:18765383795" class="contact-link">1 (876) 538-3795</a></p>
+        <p>💬 Official WhatsApp: <br><a href="https://wa.me/18765015512" target="_blank" class="contact-link">1 (876) 501-5512</a></p>
+        <p>✉️ Email Address: <br><a href="mailto:bzcsroyalcleaningservice@gmail.com" class="contact-link">bzcsroyalcleaningservice@gmail.com</a></p>
+    </div>
+
+    <div style="margin-top: 35px;">
+        <a href="https://wa.me/18765015512" target="_blank" class="btn">Instant Chat on WhatsApp</a>
+    </div>
+</section>
+
+<footer>
+    <h2>Clean Home. Clear Mind. Royal Experience.</h2>
+    <p>&copy; 2026 BZCS Royal Cleaning Services. All rights reserved.</p>
+</footer>
+
+<script>
+
+/* ANIMATION INTERACTION ON SCROLL FOR THE TABLES */
+const cards = document.querySelectorAll('.pricing-category');
+
+function checkScrollReveal() {
+    cards.forEach(card => {
+        const position = card.getBoundingClientRect().top;
+        if(position < window.innerHeight - 60){
+            card.style.opacity = 1;
+            card.style.transform = "translateY(0)";
+        }
+    });
+}
+
+window.addEventListener('DOMContentLoaded', checkScrollReveal);
+window.addEventListener('scroll', checkScrollReveal);
+
+/* WHATSAPP FORM EXTRACTION PROCESSOR */
+document.getElementById('royalQuoteForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('client_name').value;
+    const type = document.getElementById('cleaning_type').value;
+    const size = document.getElementById('property_size').value;
+    const notes = document.getElementById('extra_notes').value || "None specified";
+    
+    const structuredMessage = `Hello BZCS Royal Cleaning, I would like to book an event/service estimate!%0A%0A` + 
+                            `*Client Name:* ${encodeURIComponent(name)}%0A` +
+                            `*Service Protocol:* ${encodeURIComponent(type)}%0A` +
+                            `*Property Layout Size:* ${encodeURIComponent(size)}%0A` +
+                            `*Special Instructions:* ${encodeURIComponent(notes)}`;
+    
+    window.open(`https://wa.me/18765015512?text=${structuredMessage}`, '_blank');
+});
+
+</script>
+
+</body>
+</html>
